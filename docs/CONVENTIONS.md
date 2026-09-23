@@ -111,7 +111,8 @@ project-root/
 ├── node_modules/       # Dependencies (Bun)
 ├── package.json        # Project config
 ├── bun.lock            # Lock file
-├── CLAUDE.md           # AI assistant guide
+├── AGENTS.md           # AI agent guide (agents.md standard)
+├── CLAUDE.md           # Claude Code pointer to AGENTS.md
 └── README.md           # Main documentation
 ```
 

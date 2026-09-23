@@ -1,20 +1,48 @@
-# AI Agents Guide
+# AGENTS.md
 
-Complete guide for AI assistants working on this repository.
+Guide for AI coding agents working on this repository.
+
+This file follows the [AGENTS.md](https://agents.md) open standard: it is the single source of truth for every
+agent (Codex, Cursor, GitHub Copilot, Jules, Zed, Aider, Claude Code, Gemini CLI...). Keep agent-specific files
+as thin pointers to it — never duplicate content in them.
+
+## Agent Compatibility
+
+| Agent | How it loads this file |
+|-------|------------------------|
+| Codex, Cursor, GitHub Copilot, Jules, Zed, opencode... | Native `AGENTS.md` support |
+| Aider | `read: AGENTS.md` in [`.aider.conf.yml`](.aider.conf.yml) |
+| Claude Code | [`CLAUDE.md`](CLAUDE.md) imports it with `@AGENTS.md` |
+| Gemini CLI | Set `"context": { "fileName": ["AGENTS.md"] }` in `.gemini/settings.json` if needed |
+
+Nested `AGENTS.md` files may be added in subdirectories; the closest one to the edited file takes precedence.
+
+### Project Skills
+
+Project-specific skills follow the [Agent Skills](https://agentskills.io) standard and live in
+`.agents/skills/<skill-name>/SKILL.md`, read natively by Codex, Cursor, Gemini CLI and GitHub Copilot.
+Claude Code only reads `.claude/skills/`: expose them with a relative symlink `.claude/skills -> ../.agents/skills`.
+Create these directories only when the first skill is added.
+
+## Essential Rules
+
+1. **Always consult** this file and the relevant `docs/` file before any modification
+2. **Update** documentation when making changes
+3. **Follow** conventions established in each `docs/` file
 
 ## Documentation Index
 
 | File | Purpose | Description |
 |------|---------|-------------|
 | [`AGENTS.md`](./AGENTS.md) | AI Guide | This file - conventions and rules for AI agents |
-| [`PROJECT_STRUCTURE.md`](./PROJECT_STRUCTURE.md) | Architecture | Directory and file organization |
-| [`CONVENTIONS.md`](./CONVENTIONS.md) | Code style | Naming conventions, code style, git |
-| [`TECHNICAL_GUIDE.md`](./TECHNICAL_GUIDE.md) | Implementation | API, CI/CD, performance, security, tests |
-| [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md) | UI/UX | Colors, typography, spacing, accessibility |
-| [`COMPONENT_REFERENCE.md`](./COMPONENT_REFERENCE.md) | Components | Technical reference for UI components |
-| [`FEATURES.md`](./FEATURES.md) | Features | Epics, user stories, feature status |
-| [`SCREEN_FLOW.md`](./SCREEN_FLOW.md) | Navigation | Screen flows and user journeys |
-| [`TASKS.md`](./TASKS.md) | Tasks | Task tracking and backlog |
+| [`PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) | Architecture | Directory and file organization |
+| [`CONVENTIONS.md`](docs/CONVENTIONS.md) | Code style | Naming conventions, code style, git |
+| [`TECHNICAL_GUIDE.md`](docs/TECHNICAL_GUIDE.md) | Implementation | API, CI/CD, performance, security, tests |
+| [`DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) | UI/UX | Colors, typography, spacing, accessibility |
+| [`COMPONENT_REFERENCE.md`](docs/COMPONENT_REFERENCE.md) | Components | Technical reference for UI components |
+| [`FEATURES.md`](docs/FEATURES.md) | Features | Epics, user stories, feature status |
+| [`SCREEN_FLOW.md`](docs/SCREEN_FLOW.md) | Navigation | Screen flows and user journeys |
+| [`TASKS.md`](docs/TASKS.md) | Tasks | Task tracking and backlog |
 
 ---
 
@@ -53,7 +81,7 @@ bun run clean:branches # Delete local branches whose PR was merged
 
 Project structure with source/tests/docs organization. Key points:
 
-- Root files: package.json, CLAUDE.md, README.md
+- Root files: package.json, AGENTS.md, README.md
 - `.github/`: workflows, issue templates, PR template
 - `docs/`: all documentation files
 - `node_modules/`: dependencies (managed by Bun)
@@ -195,4 +223,4 @@ Full gitmoji list: [gitmoji.dev](https://gitmoji.dev)
 
 ---
 
-*Last updated: 2026-02-03*
+*Last updated: 2026-09-24*
