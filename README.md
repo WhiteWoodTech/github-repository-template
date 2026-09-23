@@ -244,7 +244,7 @@ Details and release notes sections: [`docs/TECHNICAL_GUIDE.md`](docs/TECHNICAL_G
 
 | File | Description |
 |------|-------------|
-| [`docs/AGENTS.md`](docs/AGENTS.md) | AI assistant guide and conventions |
+| [`AGENTS.md`](AGENTS.md) | AI agent guide and conventions ([agents.md](https://agents.md) standard) |
 | [`docs/CONVENTIONS.md`](docs/CONVENTIONS.md) | Code style and git conventions |
 | [`docs/TECHNICAL_GUIDE.md`](docs/TECHNICAL_GUIDE.md) | Technical implementation details |
 | [`docs/PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) | Directory and file organization |
