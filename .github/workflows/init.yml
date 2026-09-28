@@ -1,7 +1,8 @@
 name: Initialize repository
 
 # Runs once, on the first push of a repository created from this template:
-# cleans up template content (scripts/init-template.js), creates the main and
+# cleans up template content (scripts/init-template.js, then any
+# scripts/init-<layer>.js added by a derived template), creates the main and
 # develop branches and the labels from .github/settings.yml.
 # Once done, scripts/init-template.js no longer exists and the job is a no-op.
 # This workflow cannot delete itself (GITHUB_TOKEN has no `workflows`
@@ -43,7 +44,13 @@ jobs:
         if: steps.pending.outputs.value == 'true'
         env:
           REPO_DESCRIPTION: ${{ github.event.repository.description }}
-        run: bun scripts/init-template.js
+        # A template derived from this one adds its own scripts/init-<layer>.js:
+        # they run after this template's script, each deleting itself.
+        run: |
+          bun scripts/init-template.js
+          for script in scripts/init-*.js; do
+            if [ -f "$script" ]; then bun "$script"; fi
+          done
 
       - name: Commit and push
         if: steps.pending.outputs.value == 'true'

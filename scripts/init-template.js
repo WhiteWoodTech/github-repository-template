@@ -7,7 +7,7 @@
 
 import { unlink } from 'node:fs/promises';
 
-const TEMPLATE_REPOSITORY = 'maxime-lenne/github-repository-template';
+const TEMPLATE_REPOSITORY = 'WhiteWoodTech/github-repository-template';
 
 const repository = process.env.GITHUB_REPOSITORY;
 if (!repository || repository === TEMPLATE_REPOSITORY) {

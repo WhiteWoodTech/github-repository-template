@@ -11,12 +11,12 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/maxime-lenne/github-repository-template/actions?query=workflow%3ALint+branch%3Amain">
-		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/github-repository-template/lint.yml?branch=main"
+<a href="https://github.com/WhiteWoodTech/github-repository-template/actions?query=workflow%3ALint+branch%3Amain">
+		<img src="https://img.shields.io/github/actions/workflow/status/WhiteWoodTech/github-repository-template/lint.yml?branch=main"
 			 alt="Build Status">
 	</a>
-  <a href="https://github.com/maxime-lenne/github-repository-template/actions?query=workflow%3ARelease+branch%3Amain">
-		<img src="https://img.shields.io/github/actions/workflow/status/maxime-lenne/github-repository-template/release.yml?branch=main"
+  <a href="https://github.com/WhiteWoodTech/github-repository-template/actions?query=workflow%3ARelease+branch%3Amain">
+		<img src="https://img.shields.io/github/actions/workflow/status/WhiteWoodTech/github-repository-template/release.yml?branch=main"
 			 alt="Build Status">
 	</a>
   <a href="https://opensource.org/licenses/MIT">
@@ -81,7 +81,7 @@ one workflow run and one command.
 
 ```bash
 # 1. Create the repository from the template (public: see "Private repositories")
-gh repo create my-app --template maxime-lenne/github-repository-template --public --clone
+gh repo create my-app --template WhiteWoodTech/github-repository-template --public --clone
 cd my-app
 
 # 2. Wait for the "Initialize repository" workflow, then fetch its commit

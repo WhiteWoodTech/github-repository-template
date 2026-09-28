@@ -108,7 +108,9 @@ branch (`develop`). On that first push, `init.yml` (with `GITHUB_TOKEN`):
 
 1. Runs `scripts/init-template.js`: sets `package.json` name, version `0.0.0`
    and description, README title and links, `CONTRIBUTING.md` links, empties
-   `CHANGELOG.md` and `docs/TASKS.md`, then deletes itself
+   `CHANGELOG.md` and `docs/TASKS.md`, then deletes itself. A template derived
+   from this one adds its own `scripts/init-<layer>.js`: each runs next, in
+   alphabetical order, and deletes itself too
 2. Commits `🎉 Initialize project from template` on `develop`
 3. Runs `setup-github.js --only=branches,labels`: creates `main` and the labels
 
